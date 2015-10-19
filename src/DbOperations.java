@@ -7,25 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DbOperations {
-	public static void main(String[] args) {
-		ArrayList<Map<String, String>> entityList = getEntitiesByType(210, "requirement");
-		
-		// try {
-		// batchUpdateRecordsIntoEntitiesTable(entityList);
-		// } catch (SQLException e) {
-		// e.printStackTrace();
-		// }
-		
-		for (Map<String, String> entity : entityList) {
-			System.out.print("EntityId: " + entity.get("id"));
-			System.out.print(", Name: " + entity.get("name"));
-			System.out.print(", Type: " + entity.get("type"));
-			System.out.println(", SubType: " + entity.get("subtype"));
-		}
-	}
 
-	public static ArrayList<Map<String, String>> getEntitiesByType(int pmap_id,
-			String entity_type) {
+	public static ArrayList<Map<String, String>> getEntitiesByType(int pmap_id) {
 		Connection conn = null;
 		ArrayList<Map<String, String>> entityList = new ArrayList<Map<String, String>>();
 		try {
@@ -33,9 +16,8 @@ public class DbOperations {
 			conn = dbConnObj.getDBConn();
 
 			PreparedStatement stmt = conn
-					.prepareStatement("SELECT * FROM entities WHERE problem_map_id = ? and type = ?");
+					.prepareStatement("SELECT * FROM entities WHERE problem_map_id = ?");
 			stmt.setInt(1, pmap_id);
-			stmt.setString(2, entity_type);
 
 			ResultSet rs = stmt.executeQuery();
 
