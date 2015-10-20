@@ -10,7 +10,7 @@ Sample format of **_ArrayList\<Map\<String, String\>\> entityList_**:
             subtype: "objective"
           }
 
-Output of **_ArrayList\<Map\<String, String\>\> entityList_**:
+Sample Output of **_ArrayList\<Map\<String, String\>\> entityList_** (pmap_id: 210):
 
 EntityId: 6611, Name: Obj: Return thrown basketball to the shooter, Type: requirement, SubType: objective
 
